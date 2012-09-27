@@ -1,0 +1,7 @@
+gem "sinatra"
+gem "amqp"
+gem "eventmachine"
+gem "em-websocket"
+gem "twitter-stream"
+gem "uuid"
+gem "thin"
