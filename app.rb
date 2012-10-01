@@ -31,7 +31,7 @@ EventMachine.run do
       twitter = channel.fanout("twitter")
   
       stream = Twitter::JSONStream.connect(
-        :path => '/1/statuses/filter.json?track=#boobs',
+        :path => '/1/statuses/filter.json?track=#fail',
         :auth => "username:password"
       )
   
