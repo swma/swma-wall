@@ -12,15 +12,19 @@
 
     ws = new WebSocket("ws://localhost:8080/");
     ws.onmessage = function(evt) { 
+      console.log(evt);
       data = eval("(" + evt.data + ")");
       var p = $("<div class='tweet' style='display:none'><div class='content'><a class='main-screenname' href='http://www.twitter.com/" + data.user.screen_name + "/status/" + data.id + "' target='_blank'>" + data.user.screen_name + "</a> " + data.text + "</div></div>");
+      
       if($('#tweets div.tweet').size() > 15) {
         $('#tweets div.tweet:last').slideDown(100, function() {
           $(this).remove();
         });
       }
+      
       $('#tweets').prepend(p);
       p.slideDown(140);
+      $('#pics').html("<img src='" + data.entities.media[0].media_url + "' />");
     };
     ws.onclose = function() {
       alert("socket closed");
@@ -32,7 +36,9 @@
   </script>
 </head>
 <body>
-  <div id="tweets">
+  <div id="tweets" style="float: left; width: 700px;">
+  </div>
+  <div id="pics" style="float: right; width: 700px;">
   </div>
 </body>
 </html>

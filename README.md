@@ -14,5 +14,6 @@
 ### Todo
 
 * Add style 
-* Config.yml for Twitter username/password and #hashtags or string
+* Config or env var Twitter username/password and #hashtags
 * JS for displaying tweet
+* Synchronization with Google Calendar for events
