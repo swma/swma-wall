@@ -31,7 +31,7 @@ EventMachine.run do
   
   def get_current_event_google_calendar
     service = GCal4Ruby::Service.new
-    service.authenticate("tessieradrian@yahoo.fr", "blackrabit01!")
+    service.authenticate("username", "password")
     
     event = GCal4Ruby::Event.find(service, '', {'start-min' => Time.new.utc.xmlschema, 'start-max' => (Time.new + 30000).utc.xmlschema})
     return event

@@ -1,7 +1,7 @@
 function loop_show_event_google_calendar()
 {
     show_event();
-    setInterval(function(){show_event()}, 60000);
+    setInterval(function(){show_event()}, 600);
 }
 function show_event()
 {
