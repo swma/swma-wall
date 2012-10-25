@@ -11,7 +11,11 @@ EventMachine.run do
   class SwmaWall < Sinatra::Base
     set :public_folder, File.dirname(__FILE__) + '/public'
     get '/' do
-     erb :index
+      erb :index
+    end
+    get '/agenda' do
+      @event = Oj.dump(get_current_event_google_calendar())
+      erb :agenda
     end
   end
   
@@ -25,6 +29,14 @@ EventMachine.run do
     end
   end
   
+  def get_current_event_google_calendar
+    service = GCal4Ruby::Service.new
+    service.authenticate("tessieradrian@yahoo.fr", "blackrabit01!")
+    
+    event = GCal4Ruby::Event.find(service, '', {'start-min' => Time.new.utc.xmlschema, 'start-max' => (Time.new + 30000).utc.xmlschema})
+    return event
+  end
+
   # Listend on twitter stream
   AMQP.start(:host => 'localhost') do |connection, open_ok|
     AMQP::Channel.new(connection) do |channel, open_ok|

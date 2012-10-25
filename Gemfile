@@ -8,6 +8,7 @@ gem "twitter-stream"
 gem "uuid"
 gem "thin"
 gem "oj"
+gem "gcal4ruby" # google calendar gem
 
 group :development do
   gem "awesome_print"
