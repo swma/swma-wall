@@ -6,7 +6,7 @@
 * set Twitter username/password in app.rb 
 * set Google Calendar username/password in app.rb ()
 
-# Options
+### Options
 * the events of google calendar are search in ten minutes after the current time, if you want change this you can,
   just change in app.rb the value of the var interval (in the begining of the app).
 
@@ -20,5 +20,4 @@
 
 * Add style 
 * Config or env var Twitter username/password and #hashtags
-* JS for displaying tweet
-* Synchronization with Google Calendar for events
+* JS for displaying tweet / Task with style !
