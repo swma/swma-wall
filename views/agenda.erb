@@ -1,1 +1,6 @@
-<%= @event %>
+<% @events.each do | event | %>
+   <%= erb :_event, :locals => { title: event.title, author_name: event.author_name, author_email: event.author_email, where: event.where, start_time: event.start_time, end_time: event.end_time, content: event.content } %>
+<% end %>
+<% if @events.length == 0 %>
+   <p>Pas de tâches prévues dans les <%= @interval / 60 %> prochaines minutes.</p>
+<% end %>

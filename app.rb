@@ -14,7 +14,10 @@ EventMachine.run do
       erb :index
     end
     get '/agenda' do
-      @event = Oj.dump(get_current_event_google_calendar())
+
+      @interval = 600 # Interval in seconds
+
+      @events = get_current_event_google_calendar(@interval)
       erb :agenda
     end
   end
@@ -29,11 +32,11 @@ EventMachine.run do
     end
   end
   
-  def get_current_event_google_calendar
+  def get_current_event_google_calendar(interval)
     service = GCal4Ruby::Service.new
     service.authenticate("username", "password")
     
-    event = GCal4Ruby::Event.find(service, '', {'start-min' => Time.new.utc.xmlschema, 'start-max' => (Time.new + 30000).utc.xmlschema})
+    event = GCal4Ruby::Event.find(service, '', {'start-min' => Time.new.utc.xmlschema, 'start-max' => (Time.new + interval).utc.xmlschema})
     return event
   end
 

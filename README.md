@@ -8,7 +8,7 @@
 
 # Options
 * the events of google calendar are search in ten minutes after the current time, if you want change this you can,
-  just change in the file public/javascript/show_event_google_calendar.js the number in line 4 (is in seconds)
+  just change in app.rb the value of the var interval (in the begining of the app).
 
 ### Launch the wall
 
