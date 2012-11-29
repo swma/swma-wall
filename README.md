@@ -2,13 +2,13 @@
 
 * git clone git://github.com/swma/swma-wall.git
 * bundle install
-* install [RabbitMQ](http://www.rabbitmq.com/) 
+* [install RabbitMQ](http://www.rabbitmq.com/install-homebrew.html) 
 * set Twitter username/password in app.rb 
-* set Google Calendar username/password in app.rb ()
+* set Google Calendar username/password in app.rb
 
 ### Options
 * the events of google calendar are search in ten minutes after the current time, if you want change this you can,
-  just change in app.rb the value of the var interval (in the begining of the app).
+  just change in app.rb the value of the var interval.
 
 ### Launch the wall
 
